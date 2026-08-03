@@ -1,6 +1,7 @@
+import Image from "next/image";
 import { Logo } from "@/components/Logo";
 import Reveal from "@/components/Reveal";
-import { TeamAvatar } from "@/components/TeamAvatar";
+import { FramedPhoto } from "@/components/FramedPhoto";
 
 const IG_LINK = "https://instagram.com/ogbarbersclub";
 const IG_DM_LINK = "https://ig.me/m/ogbarbersclub";
@@ -45,12 +46,21 @@ const SERVICIOS = [
       </svg>
     ),
   },
+  {
+    nombre: "Color",
+    desc: "Decoloración y color, para el que se quiere animar a algo distinto.",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" className="w-8 h-8">
+        <path d="M12 3 C8 7 5 11 5 14.5 C5 18.6 8.1 21 12 21 C15.9 21 19 18.6 19 14.5 C19 11 16 7 12 3 Z" stroke="#080808" strokeWidth="1.5" strokeLinejoin="round" />
+        <path d="M8.5 14.5 C8.5 16.7 10 18 12 18" stroke="#080808" strokeWidth="1.5" strokeLinecap="round" />
+      </svg>
+    ),
+  },
 ];
 
 const EQUIPO = [
-  { nombre: "Rodrigo", handle: "rodrigo7luna", iniciales: "R" },
-  { nombre: "Lautaro", handle: "lautarodejesus_", iniciales: "L" },
-  { nombre: "Valentín", handle: "valentincarrizo_", iniciales: "V" },
+  { nombre: "Rodrigo", handle: "rodrigo7luna", img: "/fotos/rodrigo.png" },
+  { nombre: "Valentín", handle: "valentincarrizo_", img: "/fotos/valentin.png" },
 ];
 
 export default function Home() {
@@ -73,7 +83,10 @@ export default function Home() {
 
       {/* HERO */}
       <section className="relative pt-44 pb-28 overflow-hidden">
-        <div className="hero-pattern" />
+        <div className="hero-photo-layer">
+          <Image src="/fotos/hero.jpg" alt="" aria-hidden fill priority sizes="100vw" className="hero-photo" />
+        </div>
+        <div className="hero-veil" />
         <div className="max-w-5xl mx-auto px-6 lg:px-10 relative">
           <Reveal>
             <p className="eyebrow mb-6">Barbería · Martínez, San Isidro</p>
@@ -142,10 +155,10 @@ export default function Home() {
               La familia OG
             </h2>
           </Reveal>
-          <div className="mt-14 grid sm:grid-cols-3 gap-5">
+          <div className="mt-14 grid sm:grid-cols-2 gap-8 max-w-2xl mx-auto">
             {EQUIPO.map((m, i) => (
               <Reveal key={m.handle} delay={i * 80}>
-                <TeamAvatar initials={m.iniciales} />
+                <FramedPhoto src={m.img} alt={m.nombre} aspect="aspect-[4/5]" className="!border-ink-50/15" />
                 <p className="font-display text-2xl mt-5">{m.nombre}</p>
                 <a
                   href={`https://instagram.com/${m.handle}`}
