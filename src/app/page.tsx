@@ -155,9 +155,9 @@ export default function Home() {
               La familia OG
             </h2>
           </Reveal>
-          <div className="mt-14 grid sm:grid-cols-2 gap-8 max-w-2xl mx-auto">
+          <div className="mt-14 grid sm:grid-cols-2 gap-16 max-w-3xl mx-auto">
             {EQUIPO.map((m, i) => (
-              <Reveal key={m.handle} delay={i * 80}>
+              <Reveal key={m.handle} delay={i * 80} className="text-center">
                 <FramedPhoto src={m.img} alt={m.nombre} aspect="aspect-[4/5]" className="!border-ink-50/15" />
                 <p className="font-display text-2xl mt-5">{m.nombre}</p>
                 <a
