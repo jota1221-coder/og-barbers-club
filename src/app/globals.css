@@ -66,13 +66,13 @@ html, body {
    como una sombra que pulsa suave en vez de un neón. ─────────────────── */
 .hero-title-wrapper {
   position: relative;
-  display: inline-block;
 }
 
 .hero-title-outline {
   position: absolute;
   top: 8px;
   left: 8px;
+  width: 100%;
   z-index: 0;
   color: transparent;
   -webkit-text-stroke: 1.5px rgba(8, 8, 8, 0.25);
