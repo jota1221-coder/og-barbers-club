@@ -134,7 +134,7 @@ export default function Home() {
                   href={`https://instagram.com/${m.handle}`}
                   target="_blank"
                   rel="noopener"
-                  className="text-sm text-ink-300 hover:text-ink-50 transition-colors"
+                  className="inline-block py-1 text-sm text-ink-300 hover:text-ink-50 transition-colors"
                 >
                   @{m.handle}
                 </a>
@@ -294,7 +294,7 @@ export default function Home() {
               href="https://joaquinrao-web.vercel.app"
               target="_blank"
               rel="noopener"
-              className="underline underline-offset-4 hover:text-ink-950 transition-colors"
+              className="inline-block py-1.5 underline underline-offset-4 hover:text-ink-950 transition-colors"
             >
               Joaquin Rao
             </a>{" "}
