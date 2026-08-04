@@ -4,6 +4,7 @@ import { FramedPhoto } from "@/components/FramedPhoto";
 
 const IG_LINK = "https://instagram.com/ogbarbersclub";
 const IG_DM_LINK = "https://ig.me/m/ogbarbersclub";
+const MAPS_LINK = "https://www.google.com/maps/place/?q=place_id:ChIJKyqdM1CxvJURFYXXxiFVJ70";
 
 const SERVICIOS = [
   {
@@ -67,7 +68,7 @@ export default function Home() {
             </div>
             <span className="rule" />
             <p className="mt-8 text-ink-600 text-lg max-w-xl">
-              Fades, diseños y cortes clásicos. Por orden de llegada — pero ahora podés ver la fila antes de salir de tu casa.
+              Fades, diseños y cortes clásicos en Martínez. Por orden de llegada: venís, esperás tu momento y salís como querías.
             </p>
             <div className="mt-6 flex items-center gap-3">
               <span className="text-lg tracking-widest">★★★★★</span>
@@ -188,8 +189,9 @@ export default function Home() {
                 <p className="text-sm text-ink-500 mt-1">Lunes y domingo cerrado · por orden de llegada</p>
               </li>
             </ul>
-            <div className="mt-10 flex gap-6">
+            <div className="mt-10 flex flex-wrap gap-6">
               <a href={IG_DM_LINK} target="_blank" rel="noopener" className="cta-link">Instagram DM</a>
+              <a href={MAPS_LINK} target="_blank" rel="noopener" className="cta-link">Cómo llegar →</a>
             </div>
           </Reveal>
           <Reveal className="lg:col-span-7" delay={200}>
@@ -248,7 +250,16 @@ export default function Home() {
             No es el sitio oficial de OG Barber&apos;s Club ni mantiene relación comercial con el establecimiento.
           </p>
           <p className="text-center text-[10px] mt-5 eyebrow">
-            Demo desarrollada por Joaquin Rao · 2026
+            Demo desarrollada por{" "}
+            <a
+              href="https://joaquinrao-web.vercel.app"
+              target="_blank"
+              rel="noopener"
+              className="underline underline-offset-4 hover:text-ink-950 transition-colors"
+            >
+              Joaquin Rao
+            </a>{" "}
+            · 2026
           </p>
         </div>
       </footer>

@@ -25,16 +25,18 @@ const inter = Inter({
 
 const title = "OG Barber's Club · Barbería en Martínez, San Isidro";
 const description =
-  "Fades, diseños y cortes de verdad en Martínez. Team Rodrigo, Lauti y Valentín. Por orden de llegada — mirá cómo está la fila antes de salir de tu casa.";
+  "Fades, diseños y cortes de verdad en Martínez. Rodrigo y Valentín, por orden de llegada. Martes a sábado de 10 a 20 hs.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://og-barbers-club.vercel.app"),
+  metadataBase: new URL("https://ogbarber.vercel.app"),
   title,
   description,
+  // Demo no oficial: no debe indexarse ni competir en Google con el negocio real.
+  robots: { index: false, follow: false },
   openGraph: {
     title,
     description,
-    url: "https://og-barbers-club.vercel.app",
+    url: "https://ogbarber.vercel.app",
     siteName: "OG Barber's Club",
     locale: "es_AR",
     type: "website",
