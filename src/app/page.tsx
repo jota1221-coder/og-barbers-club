@@ -146,11 +146,50 @@ export default function Home() {
 
       <div className="divider max-w-7xl mx-auto" />
 
+      {/* EL LOCAL */}
+      <section id="local" className="py-28">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10">
+          <Reveal>
+            <p className="eyebrow mb-4">03 — El local</p>
+            <h2 className="font-display text-4xl lg:text-6xl max-w-lg">
+              Juncal 6, adentro
+            </h2>
+          </Reveal>
+          <Reveal delay={120} className="mt-14">
+            <FramedPhoto
+              src="/fotos/local.png"
+              alt="Interior de OG Barber's Club: dos barberos atendiendo al mismo tiempo"
+              aspect="aspect-[21/9]"
+            />
+          </Reveal>
+          <div className="mt-6 grid lg:grid-cols-3 gap-6 items-center">
+            <Reveal delay={200}>
+              <FramedPhoto
+                src="/fotos/resultado.png"
+                alt="Corte terminado en OG Barber's Club"
+                aspect="aspect-[4/5]"
+              />
+            </Reveal>
+            <Reveal delay={280} className="lg:col-span-2">
+              <p className="text-ink-600 text-lg leading-relaxed max-w-lg">
+                Dos sillones, luz natural y la charla de siempre. Venís, esperás
+                tu turno y salís con el corte hecho — sin agenda y sin apuro.
+              </p>
+              <a href="#ubicacion" className="cta-link inline-block mt-8">
+                Ver dónde queda →
+              </a>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      <div className="divider max-w-7xl mx-auto" />
+
       {/* RESEÑAS */}
       <section className="py-28">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <Reveal>
-            <p className="eyebrow mb-6">03 — Reseñas</p>
+            <p className="eyebrow mb-6">04 — Reseñas</p>
             <span className="text-3xl tracking-widest">★★★★★</span>
             <h2 className="font-display text-4xl lg:text-5xl mt-4">4.9 en Google</h2>
             <p className="mt-6 text-ink-500 max-w-md mx-auto">
@@ -174,7 +213,7 @@ export default function Home() {
       <section id="ubicacion" className="py-28">
         <div className="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-12 gap-14 items-center">
           <Reveal className="lg:col-span-5">
-            <p className="eyebrow mb-4">04 — Ubicación</p>
+            <p className="eyebrow mb-4">05 — Ubicación</p>
             <h2 className="font-display text-4xl lg:text-6xl leading-tight">
               Martínez
             </h2>
@@ -210,7 +249,7 @@ export default function Home() {
       {/* CIERRE */}
       <section className="py-32 bg-ink-950 text-ink-50 relative overflow-hidden">
         <Reveal className="relative max-w-2xl mx-auto px-6 text-center">
-          <p className="eyebrow !text-ink-300 mb-6">05 — Sumate</p>
+          <p className="eyebrow !text-ink-300 mb-6">06 — Sumate</p>
           <h2 className="font-display text-5xl lg:text-7xl leading-tight">
             Bienvenido a<br />la familia
           </h2>
