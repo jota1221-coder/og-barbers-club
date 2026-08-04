@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { Logo } from "@/components/Logo";
 import Reveal from "@/components/Reveal";
 import { FramedPhoto } from "@/components/FramedPhoto";
@@ -8,53 +7,24 @@ const IG_DM_LINK = "https://ig.me/m/ogbarbersclub";
 
 const SERVICIOS = [
   {
-    nombre: "Fades",
-    desc: "Low fade, high fade, burst fade — con la textura bien resuelta, no solo la línea.",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" className="w-8 h-8">
-        <path d="M6 4 L6 20 M6 4 C10 4 14 8 14 12 C14 16 10 20 6 20" stroke="#080808" strokeWidth="1.5" strokeLinecap="round" />
-        <path d="M18 8 L18 16" stroke="#080808" strokeWidth="1.5" strokeLinecap="round" />
-      </svg>
-    ),
-  },
-  {
     nombre: "Diseños",
     desc: "Mohicanos y diseños a mano alzada, para el que quiere algo que no ve en cualquier lado.",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" className="w-8 h-8">
-        <path d="M12 3 L15 10 L22 11 L17 16 L18 22 L12 19 L6 22 L7 16 L2 11 L9 10 Z" stroke="#080808" strokeWidth="1.5" strokeLinejoin="round" />
-      </svg>
-    ),
+    img: "/fotos/servicio-disenos.png",
+  },
+  {
+    nombre: "Fades",
+    desc: "Low fade, high fade, burst fade — con la textura bien resuelta, no solo la línea.",
+    img: "/fotos/servicio-fades.png",
   },
   {
     nombre: "Corte clásico",
     desc: "Estilo italiano, prolijo y atemporal — el corte que nunca pasa de moda.",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" className="w-8 h-8">
-        <circle cx="6" cy="6" r="2.4" stroke="#080808" strokeWidth="1.5" />
-        <circle cx="6" cy="18" r="2.4" stroke="#080808" strokeWidth="1.5" />
-        <path d="M8 7.3L20 17.2M8 16.7L20 6.8" stroke="#080808" strokeWidth="1.5" strokeLinecap="round" />
-      </svg>
-    ),
-  },
-  {
-    nombre: "Barba",
-    desc: "Perfilado y arreglo de barba con navaja, a juego con el corte.",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" className="w-8 h-8">
-        <path d="M4 6 C4 6 6 4 12 4 C18 4 20 6 20 6 L19 14 C19 18 15 21 12 21 C9 21 5 18 5 14 Z" stroke="#080808" strokeWidth="1.5" strokeLinejoin="round" />
-      </svg>
-    ),
+    img: "/fotos/servicio-clasico.png",
   },
   {
     nombre: "Color",
     desc: "Decoloración y color, para el que se quiere animar a algo distinto.",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" className="w-8 h-8">
-        <path d="M12 3 C8 7 5 11 5 14.5 C5 18.6 8.1 21 12 21 C15.9 21 19 18.6 19 14.5 C19 11 16 7 12 3 Z" stroke="#080808" strokeWidth="1.5" strokeLinejoin="round" />
-        <path d="M8.5 14.5 C8.5 16.7 10 18 12 18" stroke="#080808" strokeWidth="1.5" strokeLinecap="round" />
-      </svg>
-    ),
+    img: "/fotos/servicio-color.png",
   },
 ];
 
@@ -83,10 +53,7 @@ export default function Home() {
 
       {/* HERO */}
       <section className="relative pt-44 pb-28 overflow-hidden">
-        <div className="hero-photo-layer">
-          <Image src="/fotos/hero.jpg" alt="" aria-hidden fill priority sizes="100vw" className="hero-photo" />
-        </div>
-        <div className="hero-veil" />
+        <div className="hero-pattern" />
         <div className="max-w-5xl mx-auto px-6 lg:px-10 relative">
           <Reveal>
             <p className="eyebrow mb-6">Barbería · Martínez, San Isidro</p>
@@ -132,10 +99,12 @@ export default function Home() {
           <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {SERVICIOS.map((s, i) => (
               <Reveal key={s.nombre} delay={i * 80}>
-                <div className="card h-full p-7">
-                  {s.icon}
-                  <p className="font-display text-2xl mt-5">{s.nombre}</p>
-                  <p className="mt-3 text-sm text-ink-500 leading-relaxed">{s.desc}</p>
+                <div className="card h-full overflow-hidden">
+                  <FramedPhoto src={s.img} alt={s.nombre} aspect="aspect-[4/5]" className="!border-0 !border-b" />
+                  <div className="p-6">
+                    <p className="font-display text-2xl">{s.nombre}</p>
+                    <p className="mt-3 text-sm text-ink-500 leading-relaxed">{s.desc}</p>
+                  </div>
                 </div>
               </Reveal>
             ))}

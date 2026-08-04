@@ -90,32 +90,19 @@ html, body {
   50% { -webkit-text-stroke-color: rgba(8, 8, 8, 0.35); }
 }
 
-/* Foto real del hero con Ken Burns (mismo mecanismo que bacanbarberia.com.ar
-   y que ya usamos en StarMap) + velo claro para que el texto negro siga
-   leyéndose encima de la foto. */
-.hero-photo-layer {
+/* Textura de fondo del hero — líneas diagonales que derivan lentísimo,
+   inspirado en bacanbarberia.com.ar. */
+.hero-pattern {
   position: absolute;
-  inset: 0;
-  overflow: hidden;
-  z-index: 0;
-}
-
-.hero-photo {
-  object-fit: cover;
-  animation: heroZoom 40s ease-in-out infinite alternate;
-}
-
-.hero-veil {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  background: linear-gradient(180deg, rgba(250, 250, 250, 0.88) 0%, rgba(250, 250, 250, 0.94) 55%, rgba(250, 250, 250, 0.98) 100%);
+  inset: -20%;
+  background-image: repeating-linear-gradient(45deg, rgba(8, 8, 8, 0.04) 0px, rgba(8, 8, 8, 0.04) 1px, transparent 1px, transparent 24px);
+  animation: patternDrift 60s linear infinite;
   pointer-events: none;
 }
 
-@keyframes heroZoom {
-  from { transform: scale(1); }
-  to { transform: scale(1.08); }
+@keyframes patternDrift {
+  from { transform: translate(0, 0); }
+  to { transform: translate(120px, 120px); }
 }
 
 /* CTAs ───────────────────────────────────────────────────────── */
@@ -302,7 +289,7 @@ html, body {
     animation: none;
     -webkit-text-stroke-color: rgba(8, 8, 8, 0.25);
   }
-  .hero-photo {
+  .hero-pattern {
     animation: none;
   }
   .cta-solid::before {
