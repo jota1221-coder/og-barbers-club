@@ -51,7 +51,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es" className={`${anton.variable} ${unifraktur.variable} ${inter.variable}`}>
-      <body className="min-h-screen bg-ink-50 text-ink-950 antialiased">
+      <body className="min-h-screen bg-ink-950 text-ink-50 antialiased">
         {children}
       </body>
     </html>

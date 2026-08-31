@@ -6,6 +6,12 @@ const IG_LINK = "https://instagram.com/ogbarbersclub";
 const IG_DM_LINK = "https://ig.me/m/ogbarbersclub";
 const MAPS_LINK = "https://www.google.com/maps/place/?q=place_id:ChIJKyqdM1CxvJURFYXXxiFVJ70";
 
+// WhatsApp de Joaquín (autor), NO el del negocio — es la única vía real
+// que tiene el dueño para contestar. Mismo patrón que Maccia.
+const WHATSAPP_AUTOR = `https://wa.me/5491133905237?text=${encodeURIComponent(
+  "Hola Joaquín! Vi la demo que hiciste para OG Barber's Club"
+)}`;
+
 const SERVICIOS = [
   {
     nombre: "Diseños",
@@ -34,19 +40,25 @@ const EQUIPO = [
   { nombre: "Valentín", handle: "valentincarrizo_", img: "/fotos/valentin.png" },
 ];
 
+// Reseña real, verbatim, tomada de Google Maps (OG barber's club, 4.9★/158 reseñas).
+const RESEÑA = {
+  nombre: "Nico Villa",
+  texto: "Los pibes unos genios, el gonza una masa, muy prolijo todo y buen ambiente",
+};
+
 export default function Home() {
   return (
     <main>
       {/* NAV */}
-      <nav className="fixed top-0 inset-x-0 z-50 bg-ink-50/90 backdrop-blur-sm border-b hairline">
+      <nav className="nav-invert fixed top-0 inset-x-0 z-50 backdrop-blur-sm border-b hairline">
         <div className="max-w-7xl mx-auto px-6 lg:px-10 h-20 flex items-center justify-between">
           <Logo size={38} />
-          <div className="hidden md:flex items-center gap-8 eyebrow">
-            <a href="#servicios" className="hover:opacity-60 transition-opacity">Servicios</a>
-            <a href="#equipo" className="hover:opacity-60 transition-opacity">Equipo</a>
-            <a href="#ubicacion" className="hover:opacity-60 transition-opacity">Ubicación</a>
+          <div className="hidden md:flex h-full items-stretch gap-8 eyebrow">
+            <a href="#servicios" className="nav-link flex items-center">Servicios</a>
+            <a href="#equipo" className="nav-link flex items-center">Equipo</a>
+            <a href="#ubicacion" className="nav-link flex items-center">Ubicación</a>
           </div>
-          <a href={IG_DM_LINK} target="_blank" rel="noopener" className="cta-solid !py-3 !px-6 !text-xs">
+          <a href={IG_DM_LINK} target="_blank" rel="noopener" className="cta-invert cta-solid !bg-ink-950 !text-ink-50 !py-3 !px-6 !text-xs">
             Escribinos
           </a>
         </div>
@@ -67,12 +79,12 @@ export default function Home() {
               </h1>
             </div>
             <span className="rule" />
-            <p className="mt-8 text-ink-600 text-lg max-w-xl">
+            <p className="mt-8 text-ink-200 text-lg max-w-xl">
               Fades, diseños y cortes clásicos en Martínez. Por orden de llegada: venís, esperás tu momento y salís como querías.
             </p>
             <div className="mt-6 flex items-center gap-3">
-              <span className="text-lg tracking-widest">★★★★★</span>
-              <span className="text-sm text-ink-500">4.9 en Google</span>
+              <span className="text-lg tracking-widest text-[#FBBC04]">★★★★★</span>
+              <span className="text-sm text-ink-300">4.9 en Google</span>
             </div>
             <div className="mt-10 flex flex-wrap gap-4">
               <a href={IG_DM_LINK} target="_blank" rel="noopener" className="cta-solid">
@@ -104,20 +116,20 @@ export default function Home() {
                   <FramedPhoto src={s.img} alt={s.nombre} aspect="aspect-[4/5]" className="!border-0 !border-b" />
                   <div className="p-6">
                     <p className="font-display text-2xl">{s.nombre}</p>
-                    <p className="mt-3 text-sm text-ink-500 leading-relaxed">{s.desc}</p>
+                    <p className="mt-3 text-sm text-ink-300 leading-relaxed">{s.desc}</p>
                   </div>
                 </div>
               </Reveal>
             ))}
           </div>
-          <p className="mt-8 text-sm text-ink-400 italic">Consultanos precios por Instagram.</p>
+          <p className="mt-8 text-sm text-ink-300 italic">Consultanos precios por Instagram.</p>
         </div>
       </section>
 
       <div className="divider max-w-7xl mx-auto" />
 
       {/* EQUIPO */}
-      <section id="equipo" className="py-28 bg-ink-950 text-ink-50">
+      <section id="equipo" className="py-28 bg-ink-900 text-ink-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <Reveal>
             <p className="eyebrow !text-ink-300 mb-4">02 — Equipo</p>
@@ -146,64 +158,32 @@ export default function Home() {
 
       <div className="divider max-w-7xl mx-auto" />
 
-      {/* EL LOCAL */}
-      <section id="local" className="py-28">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10">
-          <Reveal>
-            <p className="eyebrow mb-4">03 — El local</p>
-            <h2 className="font-display text-4xl lg:text-6xl max-w-lg">
-              Juncal 6, adentro
-            </h2>
-          </Reveal>
-          <Reveal delay={120} className="mt-14">
-            <FramedPhoto
-              src="/fotos/local.png"
-              alt="Interior de OG Barber's Club: dos barberos atendiendo al mismo tiempo"
-              aspect="aspect-[21/9]"
-            />
-          </Reveal>
-          <div className="mt-6 grid lg:grid-cols-3 gap-6 items-center">
-            <Reveal delay={200}>
-              <FramedPhoto
-                src="/fotos/resultado.png"
-                alt="Corte terminado en OG Barber's Club"
-                aspect="aspect-[4/5]"
-              />
-            </Reveal>
-            <Reveal delay={280} className="lg:col-span-2">
-              <p className="text-ink-600 text-lg leading-relaxed max-w-lg">
-                Dos sillones, luz natural y la charla de siempre. Venís, esperás
-                tu turno y salís con el corte hecho — sin agenda y sin apuro.
-              </p>
-              <a href="#ubicacion" className="cta-link inline-block mt-8">
-                Ver dónde queda →
-              </a>
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
-      <div className="divider max-w-7xl mx-auto" />
-
       {/* RESEÑAS */}
       <section className="py-28">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <Reveal>
-            <p className="eyebrow mb-6">04 — Reseñas</p>
-            <span className="text-3xl tracking-widest">★★★★★</span>
+            <p className="eyebrow mb-6">03 — Reseñas</p>
+            <span className="text-3xl tracking-widest text-[#FBBC04]">★★★★★</span>
             <h2 className="font-display text-4xl lg:text-5xl mt-4">4.9 en Google</h2>
-            <p className="mt-6 text-ink-500 max-w-md mx-auto">
-              Clientes reales destacan la atención, el ambiente y el trato del equipo.
-            </p>
-            <a
-              href="https://www.google.com/maps/place/?q=place_id:ChIJKyqdM1CxvJURFYXXxiFVJ70"
-              target="_blank"
-              rel="noopener"
-              className="cta-link inline-block mt-8"
-            >
-              Ver reseñas en Google Maps →
-            </a>
+            <p className="mt-3 text-sm text-ink-300">158 reseñas</p>
           </Reveal>
+          <Reveal delay={120} className="mt-12">
+            <div className="card p-8 max-w-lg mx-auto text-left">
+              <span className="text-lg tracking-widest text-[#FBBC04]">★★★★★</span>
+              <p className="mt-4 font-sans italic leading-relaxed text-ink-100">
+                &ldquo;{RESEÑA.texto}&rdquo;
+              </p>
+              <p className="mt-5 eyebrow !text-ink-300">{RESEÑA.nombre}</p>
+            </div>
+          </Reveal>
+          <a
+            href="https://www.google.com/maps/place/?q=place_id:ChIJKyqdM1CxvJURFYXXxiFVJ70"
+            target="_blank"
+            rel="noopener"
+            className="cta-link inline-block mt-10"
+          >
+            Ver reseñas en Google Maps →
+          </a>
         </div>
       </section>
 
@@ -213,19 +193,19 @@ export default function Home() {
       <section id="ubicacion" className="py-28">
         <div className="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-12 gap-14 items-center">
           <Reveal className="lg:col-span-5">
-            <p className="eyebrow mb-4">05 — Ubicación</p>
+            <p className="eyebrow mb-4">04 — Ubicación</p>
             <h2 className="font-display text-4xl lg:text-6xl leading-tight">
               Martínez
             </h2>
             <span className="rule" />
             <ul className="mt-10 space-y-6">
               <li className="pb-5 border-b hairline">
-                <p className="text-ink-950">Juncal 6</p>
-                <p className="text-sm text-ink-500 mt-1">Martínez, Buenos Aires</p>
+                <p className="text-ink-50">Juncal 6</p>
+                <p className="text-sm text-ink-300 mt-1">Martínez, Buenos Aires</p>
               </li>
               <li className="pb-5 border-b hairline">
-                <p className="text-ink-950">Martes a sábado, 10 a 20 hs</p>
-                <p className="text-sm text-ink-500 mt-1">Lunes y domingo cerrado · por orden de llegada</p>
+                <p className="text-ink-50">Martes a sábado, 10 a 20 hs</p>
+                <p className="text-sm text-ink-300 mt-1">Lunes y domingo cerrado · por orden de llegada</p>
               </li>
             </ul>
             <div className="mt-10 flex flex-wrap gap-6">
@@ -247,56 +227,57 @@ export default function Home() {
       </section>
 
       {/* CIERRE */}
-      <section className="py-32 bg-ink-950 text-ink-50 relative overflow-hidden">
+      <section className="py-32 bg-ink-50 text-ink-950 relative overflow-hidden">
+        <div className="hero-pattern-dark" />
         <Reveal className="relative max-w-2xl mx-auto px-6 text-center">
-          <p className="eyebrow !text-ink-300 mb-6">06 — Sumate</p>
+          <p className="eyebrow !text-ink-600 mb-6">05 — Sumate</p>
           <h2 className="font-display text-5xl lg:text-7xl leading-tight">
             Bienvenido a<br />la familia
           </h2>
-          <div className="flex justify-center mt-8"><span className="rule !bg-ink-50" /></div>
-          <p className="mt-10 text-ink-300 max-w-md mx-auto text-lg">
+          <div className="flex justify-center mt-8"><span className="rule !bg-ink-950" /></div>
+          <p className="mt-10 text-ink-600 max-w-md mx-auto text-lg">
             Por orden de llegada, como siempre. Escribinos por Instagram.
           </p>
-          <a href={IG_DM_LINK} target="_blank" rel="noopener" className="cta-solid mt-12 !bg-ink-50 !text-ink-950 !px-12 !py-5">
+          <a href={IG_DM_LINK} target="_blank" rel="noopener" className="cta-invert cta-solid !bg-ink-950 !text-ink-50 mt-12 !px-12 !py-5">
             Escribinos por Instagram
           </a>
         </Reveal>
       </section>
 
       {/* FOOTER */}
-      <footer className="border-t hairline pt-20 pb-10 bg-ink-50">
+      <footer className="border-t hairline pt-20 pb-10 bg-ink-950">
         <div className="max-w-7xl mx-auto px-6 lg:px-10 grid md:grid-cols-3 gap-12">
           <div>
             <Logo size={40} />
-            <p className="mt-6 text-ink-500 leading-relaxed">
+            <p className="mt-6 text-ink-300 leading-relaxed">
               Barbería en Martínez, San Isidro.
             </p>
           </div>
           <div>
             <p className="eyebrow mb-5">Contacto</p>
-            <a href={IG_LINK} target="_blank" rel="noopener" className="block text-ink-500 hover:text-ink-950 transition-colors">Instagram</a>
-            <a href={IG_DM_LINK} target="_blank" rel="noopener" className="block text-ink-500 hover:text-ink-950 transition-colors mt-1">Enviar mensaje</a>
+            <a href={IG_LINK} target="_blank" rel="noopener" className="block text-ink-300 hover:text-ink-50 transition-colors">Instagram</a>
+            <a href={IG_DM_LINK} target="_blank" rel="noopener" className="block text-ink-300 hover:text-ink-50 transition-colors mt-1">Enviar mensaje</a>
           </div>
           <div>
             <p className="eyebrow mb-5">Ubicación</p>
-            <p className="text-ink-950">Juncal 6</p>
-            <p className="text-ink-500">Martínez, Buenos Aires</p>
+            <p className="text-ink-50">Juncal 6</p>
+            <p className="text-ink-300">Martínez, Buenos Aires</p>
           </div>
         </div>
         <div className="mt-16 pt-10 border-t hairline">
-          <p className="text-center text-[11px] text-ink-400 max-w-2xl mx-auto leading-relaxed px-6">
+          <p className="text-center text-[11px] text-ink-300 max-w-2xl mx-auto leading-relaxed px-6">
             Este sitio es un proyecto de demostración técnica desarrollado de forma independiente.
             No es el sitio oficial de OG Barber&apos;s Club ni mantiene relación comercial con el establecimiento.
           </p>
           <p className="text-center text-[10px] mt-5 eyebrow">
             Demo desarrollada por{" "}
             <a
-              href="https://joaquinrao-web.vercel.app"
+              href={WHATSAPP_AUTOR}
               target="_blank"
               rel="noopener"
-              className="inline-block py-1.5 underline underline-offset-4 hover:text-ink-950 transition-colors"
+              className="inline-block py-1.5 underline underline-offset-4 hover:text-ink-50 transition-colors"
             >
-              Joaquin Rao
+              Joaquín Rao
             </a>{" "}
             · 2026
           </p>
